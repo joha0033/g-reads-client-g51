@@ -3,12 +3,15 @@ const BOOK_URL = 'http://localhost:3000/api/v1/books';
 $( document ).ready(function() {
     //materialize dropdown initialize
     dropDown();
+    selectbox();
     getBooks().then(showBooks)//then(showBooks)
 });
 //materialize dropdown initialize
 const dropDown = () => $(".dropdown-button").dropdown();
 
 const getBooks = () => $.get(BOOK_URL)
+
+const selectbox = () =>  $('select').material_select();
 
 const showBooks = (books) => {
   console.log(books);
