@@ -28,14 +28,56 @@
       </nav>
     </header>
       <main>
-        <div class='row container'>
-          <div id = 'books-list'>
-            <div id='book-list-items'>
-            <!-- LETS PUT SOME BOOKS IN THIS BITCH -->
 
+        <div class="row container">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="book-title" type="text" class="validate">
+                <label for="title">Title</label>
+              </div>
+              <div class="input-field col s6">
+                <input id="book-genre" type="text" class="validate">
+                <label for="genre">Genre</label>
+              </div>
             </div>
-          </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="cover-url" type="text" class="validate">
+                <label for="cover-url">Book cover address</label>
+              </div>
+            </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="book-description" class="materialize-textarea"></textarea>
+                  <label for="textarea1">Textarea</label>
+                </div>
+              </div>
+
+                <div class="row">
+                  <div class= "col s9">
+                        <select multiple>
+                          <option value="" disabled selected>Choose your option</option>
+                          <option value="Author1">Author 1</option>
+                          <option value="Author2">Author 2</option>
+                          <option value="Author3">Author 3</option>
+                        </select>
+                      <label>Select Author(s)</label>
+                    </div>
+                    <div class='col s3'>
+                      <button id="addBookButton"class="btn waves-effect waves-light" type="submit" name="action">Submit
+                        <i class="material-icons right">submit</i>
+                      </button>
+                    </div>
+                </div>`
+
+
+
+
+
+          </form>
         </div>
+
       </main>
     <footer class='page-footer sticky'>
          <div class='footer-copyright'>
@@ -49,23 +91,5 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js'></script>
-    <script id='books-template' type='text/x-handlebars-template'>
-      {{#each books}}
-      <div class='row card-panel'>
-        <div class='col 4'>
-          <img src='{{cover_url}}' class='book-in-list'></img>
-        </div>
-        <div class = ' col 8 container'>
-          <p class='book-in-list'>Title: {{title}}</p>
-          <p class='book-in-list'>Genre: {{genre}}</p>
-          <p class='book-in-list'> Description: {{description}}</p>
-        </div>
-
-        </div>
-
-
-
-      {{/each}}
-    </script>
   </body>
 </html>
