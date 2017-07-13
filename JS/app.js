@@ -1,9 +1,9 @@
 //const BOOK_URL = 'http://localhost:3000/api/v1/books';
-// let BASE_URL = (window.location.hostname == "localhost") ? `http://localhost:3000`: `https://austin-greads.herokuapp.com/api/v1/books`
+let BASE_URL = (window.location.hostname == "localhost") ? `http://localhost:3000`: `https://austin-greads.herokuapp.com/api/v1/books`
 //uncomment when deployed?
-let BASE_URL = `http://localhost:3000/api/v1/books`
-//let POST_URL = (window.location.hostname == "localhost") ? `http://localhost:3000`: `https://austin-greads.herokuapp.com/api/v1/books/addBook`
-let POST_URL = `http://localhost:3000/api/v1/books/new`
+// let BASE_URL = `http://localhost:3000/api/v1/books`
+let POST_URL = (window.location.hostname == "localhost") ? `http://localhost:3000`: `https://austin-greads.herokuapp.com/api/v1/books/addBook`
+// let POST_URL = `http://localhost:3000/api/v1/books/new`
 $( document ).ready(function() {
     //materialize dropdown initialize
     dropDown();
