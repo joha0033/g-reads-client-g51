@@ -1,16 +1,17 @@
 //const BOOK_URL = 'http://localhost:3000/api/v1/books';
-let BASE_URL = (window.location.hostname == "localhost") ? `http://localhost:3000/api/v1/books`: `https://austin-greads.herokuapp.com/api/v1/books`
-console.log(BASE_URL);
-//uncomment when deployed?
-// let BASE_URL = `http://localhost:3000/api/v1/books`
+let BOOK_URL = (window.location.hostname == "localhost") ? `http://localhost:3000/api/v1/books`: `https://austin-greads.herokuapp.com/api/v1/books`
+console.log(BOOK_URL);
+let AUTHOR_URL = (window.location.hostname == "localhost") ? `http://localhost:3000/api/v1/authors`: `https://austin-greads.herokuapp.com/api/v1/books`
+console.log(AUTHOR_URL);
 let POST_URL = (window.location.hostname == "localhost") ? `http://localhost:3000/api/v1/books/new`: `https://austin-greads.herokuapp.com/api/v1/books/new`
 console.log(POST_URL);
-// let POST_URL = `http://localhost:3000/api/v1/books/new`
+
 $( document ).ready(function() {
     //materialize dropdown initialize
     dropDown();
     selectBox();
     getBooks().then(showBooks)
+    getAuthors().then(populateDropDown)
     submitBookForm()
     //createBook().then(submitBookForm)//then(goto book? success?)
 });
@@ -18,8 +19,10 @@ $( document ).ready(function() {
 //materialize dropdown initialize
 const dropDown = () => $(".dropdown-button").dropdown();
 // const getAuthors = () =>
-const getBooks = () => $.get(BASE_URL)
-//const createBook = () => $.post(BASE_URL)
+const getBooks = () => $.get(BOOK_URL)
+
+const getAuthors = () => $.get(AUTHOR_URL)
+//const createBook = () => $.post(BOOK_URL)
 const selectBox = () => $('select').material_select();
 
 const showBooks = (books) => {
@@ -34,15 +37,18 @@ const showBooks = (books) => {
   $('#book-list-items').append(html)
 }
 
-const getAuthorsForDropdown = () => {
-  $.get("", function(data) {
-      $.each(data, function(index, role) {
-        let $option = $("<option>" + role.title + "</option>")
-        // console.log(this.title)
-        $(".dropDown").append($option);
+const populateDropDown = (authors) => {
+      $.each(authors, function(index, author) {
+        let firstName = author.first_name
+        let lastName = author.last_name
+        let option = "<option value='index'>" + firstName + ' ' + lastName + "</option>"
+        console.log(option);
+        $("select").append(option);
       })
-    });
+      $('select').material_select()
 }
+
+
 
 const submitBookForm = () => {
   $('#addBookButton').on('click', function(){
