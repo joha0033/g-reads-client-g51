@@ -66,6 +66,8 @@ const submitBookForm = () => {
 
       }).then(result =>{
         console.log(result);
+        alert('Great Addition!');
+        window.location = 'books.html';
 
         //res.send(result)
         // window.location = '../HTML/books.html'
