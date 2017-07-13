@@ -41,7 +41,9 @@ const populateDropDown = (authors) => {
       $.each(authors, function(index, author) {
         let firstName = author.first_name
         let lastName = author.last_name
-        let option = "<option value='index'>" + firstName + ' ' + lastName + "</option>"
+        authorsFullName = (firstName + ' ' + lastName)
+        console.log(authorsFullName);
+        let option = '<option>' + firstName + ' ' + lastName + '</option>'
         console.log(option);
         $("select").append(option);
       })
@@ -58,11 +60,15 @@ const submitBookForm = () => {
       let genre = $('#book-genre').val()
       let cover_url = $('#cover-url').val()
       let description = $('#book-description').val()
+      let author = $('select').val()
+      console.log('anything?');
+      console.log(author);
       let bookObject = {
         'title': title,
         'genre': genre,
         'cover_url': cover_url,
-        'description': description
+        'description': description,
+        'author': author
         //add authors/post array
       }
       console.log(bookObject);
